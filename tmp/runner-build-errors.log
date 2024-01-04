@@ -1,0 +1,9 @@
+warning: GOPATH set to GOROOT (D:\go) has no effect
+# gin_project
+.\main.go:43:32: undefined: chapter02.OutJSON
+.\main.go:44:38: undefined: chapter02.AsciiJson
+.\main.go:45:33: undefined: chapter02.JsonP
+.\main.go:46:32: undefined: chapter02.Yaml
+.\main.go:47:31: undefined: chapter02.Xml
+.\main.go:48:39: undefined: chapter02.SecureJson
+.\main.go:49:37: undefined: chapter02.PureJson
