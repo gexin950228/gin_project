@@ -1,0 +1,14 @@
+{{define "chapter02/slice.html"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slice</title>
+</head>
+<body>
+{{range $v :=.}}
+    <h4>{{$v}}</h4>
+{{end}}
+</body>
+</html>
+{{end}}

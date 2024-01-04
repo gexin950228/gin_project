@@ -1,0 +1,43 @@
+{{define "chapter02/upload3.html"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX单文件上传</title>
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+<form action="/doSingleUploadAJAX" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" id="file"> <br>
+    <input type="text" name="name" id="name"> <br>
+    <input type="button" value="提交" id="btn">
+</form>
+
+<script>
+    let addBtn = document.getElementById("btn");
+    addBtn.onclick = function (ev) {
+        var form_data = new FormData();
+        // console.log($("#file"));
+        // console.log($("#file")[0].files);
+        let name = document.getElementById("name").value;
+        form_data.append("file", $("#file")[0].files[0]);
+        form_data.append("name", name);
+
+        $.ajax({
+            url: "/doSingleUploadAJAX",
+            type: "POST",
+            data: form_data,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                alert(data["msg"])
+            },
+            fail: function (data) {
+                alert(data["msg"])
+            }
+        })
+    }
+</script>
+</body>
+</html>
+{{end}}

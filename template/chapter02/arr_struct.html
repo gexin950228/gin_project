@@ -1,0 +1,14 @@
+{{define "chapter02/structArr.html"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>arr_struct</title>
+</head>
+<body>
+{{range $user := .}}
+    <h4>{{.Name}}</h4>
+{{end}}
+</body>
+</html>
+{{end}}

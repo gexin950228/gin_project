@@ -1,0 +1,41 @@
+{{define "chapter02/userAdd2.html"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX用户添加</title>
+    <script src="http://lib.sinaapp.com/js/jquery/1.6/jquery.js"></script>
+</head>
+<body>
+<form style="color: antiquewhite; widows: inherit">
+    用户&nbsp;&nbsp;名：<input type="text" placeholder="请输入用户名" name="username" id="username"> <br>
+    用户密码：<input type="password" placeholder="请输入密码" name="password" id="password"> <br>
+    邮件地址：<input type="text" placeholder="请输入邮箱地址" name="email" id="email"> <br>
+    <input type="button" value="提交" style="color: chartreuse" id="btn">
+</form>
+<script>
+    let addBtn = document.getElementById("btn");
+    addBtn.onclick = function () {
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        let email = document.getElementById("email").value;
+        $.ajax({
+            url: "/doUserAdd1",
+            type: "POST",
+            data: {
+                "username":username,
+                "password": password,
+                "email": email
+            },
+            success: function (data) {
+                alert(data["msg"])
+            },
+            fail: function (data) {
+                alert(data["msg"])
+            },
+        })
+    }
+</script>
+</body>
+</html>
+{{end}}

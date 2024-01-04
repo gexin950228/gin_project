@@ -1,0 +1,48 @@
+{{define "chapter02/upload4.html"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX多文件上传</title>
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+<form action="/doSingleUpload" method="POST" enctype="multipart/form-data">
+    <input type="file" class="file"> <br>
+    <input type="file" class="file"> <br>
+    <input type="text" id="name" name="name"> <br>
+    <input type="button" value="提交" id="btn">
+</form>
+<script>
+    let addBtn = document.getElementById("btn");
+    addBtn.onclick = function (ev) {
+        // console.log($(".file"))
+        let file_tag = $(".file")
+        let form_data = new FormData();
+        // console.log($("#file"));
+        // console.log($("#file")[0].files);
+        for(let i=0;i<file_tag.length;i++) {
+            form_data.append("files", file_tag[i].files[0])
+        }
+        let name = document.getElementById("name").value;
+        form_data.append("name", name);
+
+        $.ajax({
+            url: "/doMultiUploadAJAX",
+            type: "POST",
+            data: form_data,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                alert(data)
+                alert(data["msg"])
+            },
+            fail: function (data) {
+                alert(data["msg"])
+            }
+        })
+    }
+</script>
+</body>
+</html>
+{{end}}

@@ -1,0 +1,25 @@
+{{define "chapter02/userAdd1.html"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户添加页面</title>
+</head>
+<body>
+<form action="/doUserAdd" method="POST">
+  用户&nbsp;&nbsp;名：<input type="text" placeholder="请输入用户名" name="username" id="username"> <br>
+  用户密码：<input type="password" placeholder="请输入密码" name="password" id="password"> <br>
+  电话号码：<input type="text" placeholder="请输入电话号码" name="phone" id="phone"> <br>
+  邮件地址：<input type="text" placeholder="请输入邮箱地址" name="email" id="email"> <br>
+  爱好：<br>
+  篮球：<input type="checkbox" name="hobby" value="篮球">
+  足球：<input type="checkbox" name="hobby" value="足球">
+  棒球：<input type="checkbox" name="hobby" value="棒球">
+  网球：<input type="checkbox" name="hobby" value="网球"><br>
+  地址：<input type="text" name="user[address]"> <br>
+  年龄：<input type="text" name="user[age]"> <br>
+  <input type="submit" value="提交" style="color: chartreuse">
+</form>
+</body>
+</html>
+{{end}}

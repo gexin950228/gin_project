@@ -1,0 +1,19 @@
+{{define "chapter02/arr.html"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arr1</title>
+</head>
+<body>
+<h1>第一种循环方式</h1>
+{{range .}}
+    <h2>{{.}}</h2>
+{{end}}
+<h1>第二种循环方式</h1>
+{{range $i,$v := .}}
+    <h2>数组arr第{{$i}}个元素是: {{$v}}</h2>
+{{end}}
+</body>
+</html>
+{{end}}
