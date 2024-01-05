@@ -212,6 +212,10 @@ func DoMultiFileUploadAJAXController(ctx *gin.Context) {
 	form, err := ctx.MultipartForm()
 	if err != nil {
 		fmt.Println(err.Error())
+		ctx.JSON(http.StatusInternalServerError, gin.H{
+			"code": 500,
+			"msg":  "获取数据失败",
+		})
 		return
 	}
 	files := form.File["files"]
@@ -223,14 +227,19 @@ func DoMultiFileUploadAJAXController(ctx *gin.Context) {
 		dst := "upload/" + fileName
 		errSaveFile := ctx.SaveUploadedFile(file, dst)
 		if errSaveFile != nil {
+			ctx.JSON(http.StatusInternalServerError, gin.H{
+				"code": 500,
+				"msg":  "上传文件解析失败",
+			})
 			return
 		}
 	}
-	data := map[string]interface{}{
-		"code": 200,
-		"msg":  "Success!",
-	}
+	//data := map[string]interface{}{
+	//	"code": 200,
+	//	"msg":  "Success!",
+	//}
 	ctx.JSON(http.StatusOK, gin.H{
-		"data": data,
+		"code": 200,
+		"msg":  "Success",
 	})
 }

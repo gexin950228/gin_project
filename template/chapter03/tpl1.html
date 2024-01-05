@@ -6,7 +6,9 @@
     <title>模板语法1</title>
 </head>
 <body>
-
+    {{range $i, $v := .arr}}
+        <h3>{{$i}}:{{$v}}</h3>
+    {{end}}
 </body>
 </html>
 {{end}}
