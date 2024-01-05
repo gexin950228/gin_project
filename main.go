@@ -1,18 +1,20 @@
 package main
 
 import (
-	"fmt"
 	"gin_project/chapter01"
 	"gin_project/chapter02"
+	"gin_project/chapter03"
 	"github.com/gin-gonic/gin"
+	"net/http"
+	"time"
 )
 
 func main() {
 	engine := gin.Default()
 
 	engine.GET("/hello", chapter01.Hello)
-
 	engine.GET("/user", chapter01.User)
+
 	engine.GET("/str", chapter02.Str)
 	engine.GET("/str1", chapter02.UserInfoStruct)
 	engine.GET("/arr1", chapter02.Arr)
@@ -47,12 +49,18 @@ func main() {
 	engine.GET("/xml", chapter02.Xml)
 	engine.GET("/secure_json", chapter02.SecureJson)
 	engine.GET("/pure_json", chapter02.PureJson)
+	engine.GET("/proto", chapter02.ProtoController)
+
+	engine.GET("/tpl1", chapter03.Tpl1)
 	engine.LoadHTMLGlob("template/**/*")
 	engine.Static("/static", "static")
-	err := engine.Run(":8080")
-
-	if err != nil {
-		fmt.Println(err.Error())
-		return
+	//http.ListenAndServe(":8080", engine)
+	//err := engine.Run(":8080")
+	s := &http.Server{
+		Addr:         ":8080",
+		Handler:      engine,
+		ReadTimeout:  5 * time.Second,
+		WriteTimeout: 5 * time.Second,
 	}
+	s.ListenAndServe()
 }
