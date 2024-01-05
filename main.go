@@ -14,7 +14,7 @@ func main() {
 
 	engine.GET("/hello", chapter01.Hello)
 	engine.GET("/user", chapter01.User)
-
+\
 	engine.GET("/str", chapter02.Str)
 	engine.GET("/str1", chapter02.UserInfoStruct)
 	engine.GET("/arr1", chapter02.Arr)

@@ -1,0 +1,3 @@
+warning: GOPATH set to GOROOT (D:\go) has no effect
+# gin_project
+.\main.go:17:1: invalid character U+005C '\'
