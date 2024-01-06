@@ -9,6 +9,22 @@
     {{range $i, $v := .arr}}
         <h3>{{$i}}:{{$v}}</h3>
     {{end}}
+{{print "Hello Print"}} <br>
+{{print nil}} <br>
+{{$name := "葛新"}}
+{{$name}}<br>
+{{"Hello" | len}} <br>
+{{ if .name}}
+    <h3>后端传值name: {{.name}}</h3>
+{{else}}
+    <h3>后端没有传递name值</h3>
+{{end}}
+<h3>{{.article.Title}}, {{.article.Desc}}</h3>
+{{with .article}}
+    {{.Id}}, {{.Title}}, {{.Desc}} <br>
+{{end}}
+
+{{template "chapter03/base.html" .}}
 </body>
 </html>
 {{end}}
