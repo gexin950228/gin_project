@@ -1,6 +1,0 @@
-warning: GOPATH set to GOROOT (D:\go) has no effect
-# gin_project/chapter04
-chapter04\valid_data.go:35:35: cannot use func(f1 validator.FilterFunc) bool {…} (value of type func(f1 validator.FilterFunc) bool) as type validator.Func in variable declaration
-chapter04\valid_data.go:36:5: f1.Field undefined (type validator.FilterFunc has no field or method Field)
-chapter04\valid_data.go:37:2: undefined: rerturn
-chapter04\valid_data.go:38:1: missing return

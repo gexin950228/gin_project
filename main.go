@@ -6,6 +6,8 @@ import (
 	"gin_project/chapter03"
 	"gin_project/chapter04"
 	"github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin/binding"
+	"github.com/go-playground/validator/v10"
 	"html/template"
 	"net/http"
 	"time"
@@ -13,7 +15,10 @@ import (
 
 func main() {
 	engine := gin.Default()
-
+	v, ok := binding.Validator.Engine().(*validator.Validate)
+	if ok {
+		v.RegisterValidation("len_valid", chapter04.LenValid)
+	}
 	engine.GET("/hello", chapter01.Hello)
 	engine.GET("/user", chapter01.User)
 
