@@ -1,0 +1,28 @@
+{{define "chapter03/func.html"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数</title>
+</head>
+<body>
+<h1>函数</h1>
+{{"Halle" | printf "%s"}} <br>
+{{printf "name: %s, addr:%s" "葛新" (printf "%s%s" "北京市" "昌平区")}} <br>
+
+<!--and函数-->
+
+{{and .name .age}} <br>
+<!--or-->
+{{or .name .school}} <br>
+
+<!--index-->
+{{index .slice_data 1}} <br>
+{{urlquery "https://www.baidu.com/"}} <br>
+{{CutStr "Hello, my name is 葛新" 5}} <br>
+{{safeHtml "<a href='https://www.baidu.com'>百度</a>"}}
+<h1>自定义函数</h1>
+
+</body>
+</html>
+{{end}}

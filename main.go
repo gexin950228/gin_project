@@ -4,7 +4,9 @@ import (
 	"gin_project/chapter01"
 	"gin_project/chapter02"
 	"gin_project/chapter03"
+	"gin_project/chapter04"
 	"github.com/gin-gonic/gin"
+	"html/template"
 	"net/http"
 	"time"
 )
@@ -52,10 +54,29 @@ func main() {
 	engine.GET("/proto", chapter02.ProtoController)
 
 	engine.GET("/tpl1", chapter03.Tpl1)
+	engine.GET("/func1", chapter03.Func1)
+
+	engine.GET("/bind1", chapter04.ShouldBind1)
+	engine.POST("/doBind1", chapter04.DoShouldBind1)
+	engine.GET("/bind2", chapter04.ShouldBind2)
+	engine.POST("/doBind2", chapter04.DoShouldBind2)
+	engine.GET("/to_valid1", chapter04.ToValidData)
+	engine.POST("/do_valid1", chapter04.DoValidData)
+
+	engine.GET("/bind_uri/:id/:name/:addr/:age", chapter04.BindUri)
+
+	// 注册模板函数
+	engine.SetFuncMap(template.FuncMap{
+		"CutStr":   chapter03.CutStr,
+		"safeHtml": chapter03.SafeHTML,
+	})
 	engine.LoadHTMLGlob("template/**/*")
 	engine.Static("/static", "static")
 	//http.ListenAndServe(":8080", engine)
 	//err := engine.Run(":8080")
+	//now := time.Now()
+	//nowFormat := now.Format("2006.01.02.15.04.5")
+	//fmt.Println(nowFormat)
 	s := &http.Server{
 		Addr:         ":8080",
 		Handler:      engine,

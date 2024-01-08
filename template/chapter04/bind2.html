@@ -1,0 +1,48 @@
+{{define "chapter04/bind2.html"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON绑定</title>
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+<h1 style="text-align: center; font-size: 40px">---json bind---</h1>
+<form action="/doBind2" method="post">
+    <input type="text" id="name" placeholder="请输入姓名：">
+    <input type="text" id="age" placeholder="请输入年龄：">
+    <input type="text" id="addr" placeholder="请输入地址：">
+    <input type="button" id="btn" value="提交">
+</form>
+<script>
+    let btn = document.getElementById("btn");
+    btn.onclick = function (ev) {
+        let name= document.getElementById("name").value;
+        let age = document.getElementById("age").value;
+        let addr = document.getElementById("addr").value;
+
+        $.ajax({
+            url: "/doBind2",
+            type: "POST",
+            data:JSON.stringify({
+                "name": name,
+                "age": age,
+                "addr": addr,
+            }),
+            contentType: "application/json",
+            dataType: "json",
+            success: function (data) {
+                console.log(data["code"])
+                alert(data["msg"])
+            },
+            fail: function (data) {
+                console.log(data["code"])
+                alert(data["msg"])
+            },
+        })
+
+    }
+</script>
+</body>
+</html>
+{{end}}
