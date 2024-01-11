@@ -35,15 +35,15 @@ func DoValidData(ctx *gin.Context) {
 	var article Article
 	errDataBind := ctx.ShouldBind(&article)
 	if errDataBind != nil {
-		fmt.Println(errDataBind.Error())
-		ctx.String(http.StatusBadRequest, "请求参数错误！")
+		fmt.Println("=============", errDataBind.Error())
 	}
 	valid := validation.Validation{}
 	b, err1 := valid.Valid(&article)
-	fmt.Println(err1)
+	fmt.Println("--------", err1)
 	if !b {
 		for _, err2 := range valid.Errors {
-			fmt.Println(err2.Key, err2.Message)
+			fmt.Println(err2.Message)
+			ctx.String(http.StatusOK, err2.Message)
 		}
 	}
 	ctx.String(http.StatusOK, "Success!!")
