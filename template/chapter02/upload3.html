@@ -7,7 +7,7 @@
     <script src="/static/js/jquery.min.js"></script>
 </head>
 <body>
-<form action="/doSingleUploadAJAX" method="POST" enctype="multipart/form-data">
+<form action="/chapter02/doSingleUploadAJAX" method="POST" enctype="multipart/form-data">
     <input type="file" name="file" id="file"> <br>
     <input type="text" name="name" id="name"> <br>
     <input type="button" value="提交" id="btn">
@@ -24,7 +24,7 @@
         form_data.append("name", name);
 
         $.ajax({
-            url: "/doSingleUploadAJAX",
+            url: "/chapter02/doSingleUploadAJAX",
             type: "POST",
             data: form_data,
             contentType: false,

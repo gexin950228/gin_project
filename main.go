@@ -3,6 +3,7 @@ package main
 import (
 	"gin_project/chapter03"
 	"gin_project/chapter04"
+	"gin_project/router"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
 	"github.com/go-playground/validator/v10"
@@ -13,6 +14,8 @@ import (
 
 func main() {
 	engine := gin.Default()
+	//engine.Use(gin.Logger(), gin.Recovery())
+	//engine.Use(chapter05.MiddleWare1, chapter05.MiddleWare2())
 	v, ok := binding.Validator.Engine().(*validator.Validate)
 	if ok {
 		v.RegisterValidation("len_valid", chapter04.LenValid)
@@ -29,7 +32,7 @@ func main() {
 	//now := time.Now()
 	//nowFormat := now.Format("2006.01.02.15.04.5")
 	//fmt.Println(nowFormat)
-	Router(engine)
+	router.Router(engine)
 	s := &http.Server{
 		Addr:         ":8080",
 		Handler:      engine,

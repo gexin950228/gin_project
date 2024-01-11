@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1 style="text-align: center; font-size: 40px">---json bind---</h1>
-<form action="/doBind2" method="post">
+<form action="/chapter04/doBind2" method="post">
     <input type="text" id="name" placeholder="请输入姓名：">
     <input type="text" id="age" placeholder="请输入年龄：">
     <input type="text" id="addr" placeholder="请输入地址：">
@@ -22,7 +22,7 @@
         let addr = document.getElementById("addr").value;
 
         $.ajax({
-            url: "/doBind2",
+            url: "/chapter04/doBind2",
             type: "POST",
             data:JSON.stringify({
                 "name": name,
