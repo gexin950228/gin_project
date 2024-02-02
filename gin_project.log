@@ -1,44 +1,44 @@
 [GIN-debug] Loaded HTML Templates (41): 
-	- 
-	- chapter02/str.html
-	- chapter02/userAdd2.html
-	- chapter02/upload4.html
-	- 1.html
-	- arr.html
-	- arr_struct.html
-	- func.html
-	- chapter03/func.html
-	- upload3.html
-	- bind1.html
-	- chapter01/index.html
-	- chapter02/map.html
-	- map1.html
-	- upload2.html
-	- chapter02/userAdd1.html
-	- chapter04/valid_data.html
-	- chapter02/structArr.html
-	- chapter02/upload2.html
+	- map.html
 	- userInfoStruct.html
+	- chapter02/userInfoStruct.html
+	- chapter02/slice.html
+	- chapter03/func.html
+	- index.html
+	- chapter02/map.html
+	- chapter02/upload4.html
+	- userAdd2.html
+	- chapter02/userAdd2.html
+	- upload1.html
+	- chapter02/upload1.html
 	- chapter03/base.html
 	- tpl1.html
+	- 1.html
 	- upload4.html
-	- userAdd1.html
-	- base.html
-	- index.html
-	- map.html
-	- chapter02/map1.html
-	- chapter02/slice.html
-	- chapter02/upload1.html
-	- chapter03/tpl1.html
+	- chapter02/arr.html
+	- map1.html
+	- chapter02/upload2.html
+	- upload3.html
+	- chapter02/userAdd1.html
+	- func.html
 	- chapter04/bind2.html
-	- chapter02/userInfoStruct.html
+	- upload2.html
+	- chapter02/upload3.html
+	- chapter03/tpl1.html
 	- chapter04/bind1.html
 	- bind2.html
-	- chapter02/arr.html
+	- chapter04/valid_data.html
 	- slice.html
-	- upload1.html
-	- chapter02/upload3.html
-	- userAdd2.html
+	- 
+	- chapter01/index.html
+	- chapter02/str.html
+	- arr.html
+	- arr_struct.html
+	- chapter02/structArr.html
+	- chapter02/map1.html
+	- userAdd1.html
+	- base.html
+	- bind1.html
 	- valid_data.html
 
 [GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)

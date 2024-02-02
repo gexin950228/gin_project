@@ -10,6 +10,7 @@ var Db *gorm.DB
 var err error
 
 func init() {
+	fmt.Println("================================================")
 	dataSource := LoadMysqlConfig()
 	fmt.Println(dataSource)
 	fmt.Println("==================================================")

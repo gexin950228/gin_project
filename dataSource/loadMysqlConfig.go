@@ -16,15 +16,15 @@ type MysqlConfig struct {
 }
 
 func LoadMysqlConfig() *MysqlConfig {
-	var mysqlConfig MysqlConfig
-	file, errOpenFile := os.Open("../conf/mysql.conf")
+	mysqlConfig := MysqlConfig{}
+	file, errOpenFile := os.Open("conf/mysql.json")
 	if errOpenFile != nil {
-		return nil
+		panic(errOpenFile)
 	}
 	defer file.Close()
 	byteData, errReadFile := ioutil.ReadAll(file)
 	if errReadFile != nil {
-		return nil
+		panic(errReadFile)
 	}
 	errUnmarshal := json.Unmarshal(byteData, &mysqlConfig)
 	if errUnmarshal != nil {

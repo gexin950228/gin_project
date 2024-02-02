@@ -3,6 +3,6 @@
   "port": "3306",
   "user": "root",
   "password": "Gexin..950228",
-  "database": "gorm_project",
+  "database": "gin_project",
   "logMode": true
 }
