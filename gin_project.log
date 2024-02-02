@@ -1,0 +1,90 @@
+[GIN-debug] Loaded HTML Templates (41): 
+	- 
+	- chapter02/str.html
+	- chapter02/userAdd2.html
+	- chapter02/upload4.html
+	- 1.html
+	- arr.html
+	- arr_struct.html
+	- func.html
+	- chapter03/func.html
+	- upload3.html
+	- bind1.html
+	- chapter01/index.html
+	- chapter02/map.html
+	- map1.html
+	- upload2.html
+	- chapter02/userAdd1.html
+	- chapter04/valid_data.html
+	- chapter02/structArr.html
+	- chapter02/upload2.html
+	- userInfoStruct.html
+	- chapter03/base.html
+	- tpl1.html
+	- upload4.html
+	- userAdd1.html
+	- base.html
+	- index.html
+	- map.html
+	- chapter02/map1.html
+	- chapter02/slice.html
+	- chapter02/upload1.html
+	- chapter03/tpl1.html
+	- chapter04/bind2.html
+	- chapter02/userInfoStruct.html
+	- chapter04/bind1.html
+	- bind2.html
+	- chapter02/arr.html
+	- slice.html
+	- upload1.html
+	- chapter02/upload3.html
+	- userAdd2.html
+	- valid_data.html
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /chapter01/hello          --> gin_project/chapter01.Hello (3 handlers)
+[GIN-debug] GET    /chapter01/user           --> gin_project/chapter01.User (3 handlers)
+[GIN-debug] GET    /chapter02/str            --> gin_project/chapter02.Str (5 handlers)
+[GIN-debug] GET    /chapter02/str1           --> gin_project/chapter02.UserInfoStruct (5 handlers)
+[GIN-debug] GET    /chapter02/arr1           --> gin_project/chapter02.Arr (5 handlers)
+[GIN-debug] GET    /chapter02/arr2           --> gin_project/chapter02.ArrStruct (5 handlers)
+[GIN-debug] GET    /chapter02/map            --> gin_project/chapter02.MapController (5 handlers)
+[GIN-debug] GET    /chapter02/map1           --> gin_project/chapter02.MapArrController (5 handlers)
+[GIN-debug] GET    /chapter02/slice          --> gin_project/chapter02.SliceController (5 handlers)
+[GIN-debug] GET    /chapter02/param1/:id     --> gin_project/chapter02.Param1Controller (5 handlers)
+[GIN-debug] GET    /chapter02/param2/*id     --> gin_project/chapter02.Param2Controller (5 handlers)
+[GIN-debug] GET    /chapter02/param3         --> gin_project/chapter02.GetQueryDataController (5 handlers)
+[GIN-debug] GET    /chapter02/query_array    --> gin_project/chapter02.GetQueryArrayDataController (5 handlers)
+[GIN-debug] GET    /chapter02/query_map      --> gin_project/chapter02.GetQueryMapDataController (5 handlers)
+[GIN-debug] GET    /chapter02/toUserAdd      --> gin_project/chapter02.ToUserAddController (5 handlers)
+[GIN-debug] POST   /chapter02/doUserAdd      --> gin_project/chapter02.DoUserAddController (5 handlers)
+[GIN-debug] GET    /chapter02/toUserAdd1     --> gin_project/chapter02.ToUserAddAJAXController (5 handlers)
+[GIN-debug] POST   /chapter02/doUserAdd1     --> gin_project/chapter02.DoUserAddAJAXController (5 handlers)
+[GIN-debug] GET    /chapter02/toSingleUpload --> gin_project/chapter02.ToSingleFileUploadController (5 handlers)
+[GIN-debug] POST   /chapter02/doSingleUpload --> gin_project/chapter02.DoSingleFileUploadController (5 handlers)
+[GIN-debug] GET    /chapter02/toSingleUploadAJAX --> gin_project/chapter02.ToSingleFileUploadAJAXController (5 handlers)
+[GIN-debug] POST   /chapter02/doSingleUploadAJAX --> gin_project/chapter02.DoSingleFileUploadAJAXController (5 handlers)
+[GIN-debug] GET    /chapter02/toMultiFleUpload --> gin_project/chapter02.ToMultiFileUploadController (5 handlers)
+[GIN-debug] POST   /chapter02/doMultiUpload  --> gin_project/chapter02.DoMultiFileUploadController (5 handlers)
+[GIN-debug] GET    /chapter02/toMultiFleUploadAJAX --> gin_project/chapter02.ToMultiFileUploadAJAXController (5 handlers)
+[GIN-debug] POST   /chapter02/doMultiUploadAJAX --> gin_project/chapter02.DoMultiFileUploadAJAXController (5 handlers)
+[GIN-debug] GET    /chapter02/json           --> gin_project/chapter02.OutJSON (5 handlers)
+[GIN-debug] GET    /chapter02/ascii_json     --> gin_project/chapter02.AsciiJson (5 handlers)
+[GIN-debug] GET    /chapter02/jsonp          --> gin_project/chapter02.JsonP (5 handlers)
+[GIN-debug] GET    /chapter02/yaml           --> gin_project/chapter02.Yaml (5 handlers)
+[GIN-debug] GET    /chapter02/xml            --> gin_project/chapter02.Xml (5 handlers)
+[GIN-debug] GET    /chapter02/secure_json    --> gin_project/chapter02.SecureJson (5 handlers)
+[GIN-debug] GET    /chapter02/pure_json      --> gin_project/chapter02.PureJson (5 handlers)
+[GIN-debug] GET    /chapter02/proto          --> gin_project/chapter02.ProtoController (5 handlers)
+[GIN-debug] GET    /chapter03/tpl1           --> gin_project/chapter03.Tpl1 (3 handlers)
+[GIN-debug] GET    /chapter03/func1          --> gin_project/chapter03.Func1 (3 handlers)
+[GIN-debug] GET    /chapter04/bind1          --> gin_project/chapter04.ShouldBind1 (3 handlers)
+[GIN-debug] POST   /chapter04/doBind1        --> gin_project/chapter04.DoShouldBind1 (3 handlers)
+[GIN-debug] GET    /chapter04/bind2          --> gin_project/chapter04.ShouldBind2 (3 handlers)
+[GIN-debug] POST   /chapter04/doBind2        --> gin_project/chapter04.DoShouldBind2 (3 handlers)
+[GIN-debug] GET    /chapter04/to_valid1      --> gin_project/chapter04.ToValidData (3 handlers)
+[GIN-debug] POST   /chapter04/do_valid1      --> gin_project/chapter04.DoValidData (3 handlers)
+[GIN-debug] GET    /chapter04/bind_uri/:id/:name/:addr/:age --> gin_project/chapter04.BindUri (3 handlers)
+[GIN-debug] GET    /chapter05/auth           --> gin_project/chapter05.AuthTest (5 handlers)
+[GIN-debug] GET    /chapter06/gorm_test      --> gin_project/chapter06.GormTest (3 handlers)
