@@ -1,30 +1,33 @@
 package main
 
 import (
-	"fmt"
+	//"fmt"
 	"gin_project/chapter03"
 	"gin_project/chapter04"
 	_ "gin_project/dataSource"
+	_ "gin_project/logSource"
 	"gin_project/router"
+	"github.com/gin-contrib/sessions"
+	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
 	"github.com/go-playground/validator/v10"
 	"html/template"
-	"io"
 	"net/http"
-	"os"
 	"time"
 )
 
 func main() {
 	engine := gin.Default()
+	store := cookie.NewStore([]byte("Hello"))
+	engine.Use(sessions.Sessions("gin_session", store))
 	// 创建日志文件
-	file, errOpenLog := os.Create("gin_project.log")
-	if errOpenLog != nil {
-		fmt.Println(errOpenLog.Error())
-		return
-	}
-	gin.DefaultWriter = io.MultiWriter(file, os.Stdout)
+	// file, errOpenLog := os.OpenFile("gin_project.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	//if errOpenLog != nil {
+	//	fmt.Println(errOpenLog.Error())
+	//	return
+	//}
+	// gin.DefaultWriter = io.MultiWriter(file, os.Stdout)
 	//engine.Use(gin.Logger(), gin.Recovery())
 	//engine.Use(chapter05.MiddleWare1, chapter05.MiddleWare2())
 	v, ok := binding.Validator.Engine().(*validator.Validate)

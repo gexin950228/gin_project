@@ -9,7 +9,7 @@ import (
 )
 
 func GormTest(ctx *gin.Context) {
-	user := model.User{Name: "徐东泽", Pic: "徐东泽.png", Age: 26, Address: "哈尔滨市"}
+	user := model.User{Name: "葛新", Pic: "葛新.png", Age: 29, Address: "湘潭市"}
 	dataSource.Db.AutoMigrate(&model.User{})
 	dataSource.Db.Create(&user)
 	defer func(Db *gorm.DB) {

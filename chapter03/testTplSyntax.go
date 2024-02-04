@@ -1,6 +1,7 @@
 package chapter03
 
 import (
+	"gin_project/logSource"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -22,5 +23,6 @@ func Tpl1(ctx *gin.Context) {
 		"arr":     []int{1, 2, 3, 4, 5},
 		"article": article,
 	}
+	logSource.Log.Warn("这是警告级别")
 	ctx.HTML(http.StatusOK, "chapter03/tpl1.html", mapData)
 }
