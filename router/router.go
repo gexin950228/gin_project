@@ -8,6 +8,8 @@ import (
 	"gin_project/chapter05"
 	"gin_project/chapter06"
 	"gin_project/chapter07"
+	"gin_project/chapter09"
+	"gin_project/chapter11"
 	"github.com/gin-gonic/gin"
 )
 
@@ -20,7 +22,8 @@ func Router(router *gin.Engine) {
 	chapt05 := router.Group("/chapter05")
 	chapt06 := router.Group("/chapter06")
 	chapt07 := router.Group("/chapter07")
-
+	chapt09 := router.Group("/chapter09")
+	chapt11 := router.Group("/chapter11")
 	chapter01.Router(chapt01)
 	chapter02.Router(chapt02)
 	chapter03.Router(chapt03)
@@ -28,4 +31,6 @@ func Router(router *gin.Engine) {
 	chapter05.Router(chapt05)
 	chapter06.Router(chapt06)
 	chapter07.Router(chapt07)
+	chapter09.Router(chapt09)
+	chapter11.Router(chapt11)
 }

@@ -1,22 +1,20 @@
 package chapter09
 
 import (
-	"gin_project/dataSource"
-	"gin_project/model"
+	"fmt"
+	"gin_project/logSource"
+	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
-	"github.com/jinzhu/gorm"
 	"net/http"
 )
 
 func SessionTest(ctx *gin.Context) {
-	user := model.User{Name: "葛新", Pic: "葛新.png", Age: 29, Address: "湘潭市"}
-	dataSource.Db.AutoMigrate(&model.User{})
-	dataSource.Db.Create(&user)
-	defer func(Db *gorm.DB) {
-		err := Db.Close()
-		if err != nil {
+	// 初始化session对象
+	session := sessions.Default(ctx)
+	session.Set("age", "29")
+	logSource.Log.Info("set session")
 
-		}
-	}(dataSource.Db)
-	ctx.String(http.StatusOK, "插入成功\n")
+	name := session.Get("age")
+	fmt.Printf("age: %s。\n", name)
+	ctx.String(http.StatusOK, "session test!")
 }
