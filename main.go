@@ -47,7 +47,7 @@ func main() {
 	//}
 	// gin.DefaultWriter = io.MultiWriter(file, os.Stdout)
 	//engine.Use(gin.Logger(), gin.Recovery())
-	//engine.Use(chapter05.MiddleWare1, chapter05.MiddleWare2())
+	//engine.Use(middleware.MiddleWare1, middleware.MiddleWare2())
 	v, ok := binding.Validator.Engine().(*validator.Validate)
 	if ok {
 		v.RegisterValidation("len_valid", chapter04.LenValid)
