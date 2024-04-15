@@ -2,6 +2,7 @@ package dataSource
 
 import (
 	"fmt"
+	"gin_project/model"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
@@ -31,5 +32,5 @@ func init() {
 	Db.LogMode(true)
 	Db.DB().SetMaxOpenConns(100)
 	Db.DB().SetMaxIdleConns(50)
-	//Db.AutoMigrate(&model.User{})
+	Db.AutoMigrate(&model.Books{})
 }

@@ -1,6 +1,8 @@
 package chapter11
 
 import (
+	"fmt"
+	"gin_project/dataSource"
 	"gin_project/model"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -46,13 +48,70 @@ type Book struct {
 }
 
 func GetBooks(ctx *gin.Context) {
-	books := []Book{
-		{Id: 1, Name: "水浒传", Author: "施耐庵"},
-		{Id: 2, Name: "西游记", Author: "吴承恩"},
-		{Id: 3, Name: "红楼梦", Author: "曹雪芹"},
-		{Id: 4, Name: "三国", Author: "罗贯中"},
+	var books []model.Books
+	err := dataSource.Db.Find(&books).Error
+	if err != nil {
+		fmt.Println("查询数据出错")
 	}
 	ctx.JSON(http.StatusOK, gin.H{
 		"books": books,
+	})
+}
+
+func GetBookDetail(ctx *gin.Context) {
+	id := ctx.Query("id")
+	var book Book
+	dataSource.Db.Debug().First(&book, "id=?", id)
+	ctx.JSON(http.StatusOK, gin.H{
+		"book": book,
+	})
+}
+
+func PostTest(ctx *gin.Context) {
+	name := ctx.PostForm("name")
+	fmt.Println(name)
+	data := map[string]interface{}{
+		"code": 1,
+		"msg":  "提交成功",
+	}
+	ctx.JSON(http.StatusOK, gin.H{
+		"data": data,
+	})
+}
+
+func FileUpload(ctx *gin.Context) {
+	name := ctx.PostForm("username")
+	password := ctx.PostForm("password")
+	fmt.Println(name, password)
+	uploadFile, _ := ctx.FormFile("upload_file")
+	fileName := uploadFile.Filename
+	filePath := "upload/" + fileName
+	err := ctx.SaveUploadedFile(uploadFile, filePath)
+	if err != nil {
+		return
+	}
+	ctx.JSON(http.StatusOK, gin.H{
+		"code": 1,
+		"msg":  "Success",
+	})
+}
+
+func FilesUpload(ctx *gin.Context) {
+	name := ctx.PostForm("username")
+	password := ctx.PostForm("password")
+	fmt.Println(name, password)
+	uploadFiles, _ := ctx.MultipartForm()
+	files := uploadFiles.File["upload_files"]
+	for _, file := range files {
+		filePath := "upload/" + file.Filename
+		err := ctx.SaveUploadedFile(file, filePath)
+		if err != nil {
+			return
+		}
+	}
+
+	ctx.JSON(http.StatusOK, gin.H{
+		"code": 1,
+		"msg":  "Success",
 	})
 }
