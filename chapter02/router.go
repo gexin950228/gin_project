@@ -37,5 +37,5 @@ func Router(chapt02 *gin.RouterGroup) {
 	chapt02.GET("/xml", Xml)
 	chapt02.GET("/secure_json", SecureJson)
 	chapt02.GET("/pure_json", PureJson)
-	chapt02.GET("/proto", ProtoController)
+	//chapt02.GET("/proto", ProtoController)
 }

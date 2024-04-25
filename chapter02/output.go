@@ -1,7 +1,7 @@
 package chapter02
 
 import (
-	user "gin_project/proto"
+	//user "gin_project/proto"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -55,7 +55,8 @@ func PureJson(ctx *gin.Context) {
 	//	---------------------------------------------------------
 }
 
-func ProtoController(ctx *gin.Context) {
-	user1 := &user.User{Name: "John", Age: 29}
-	ctx.ProtoBuf(http.StatusOK, user1)
-}
+//
+//func ProtoController(ctx *gin.Context) {
+//	user1 := &user.User{Name: "John", Age: 29}
+//	ctx.ProtoBuf(http.StatusOK, user1)
+//}
